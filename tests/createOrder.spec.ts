@@ -1,7 +1,12 @@
 import { test, expect, type Page } from '@playwright/test';
 import LoginPage from '../pages/loginPage';
-import * as userData from '../fixtures/userData.json';
+import * as userData from '../fixtures/loginUserData.json';
+import * as buyerInfoData from '../fixtures/checkoutBuyerInfo.json';
 import ProductPage from '../pages/productPage';
+import ShoppingCartPage from '../pages/shoppingCartPage';
+import CheckoutInformationPage from '../pages/checkoutUserInfoPage';
+import CheckoutOverviewPage from '../pages/checkoutOverviewPage';
+import CheckoutCompletePage from '../pages/checkoutCompletePage';
 
 
 test.beforeEach(async ({ page }) => {
@@ -13,17 +18,43 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Create an order', () => {
     test('should allow users to create an order with one item', async ({ page }) => {
-     
+        const productPage = new ProductPage(page);
+        const shoppingCartPage = new ShoppingCartPage(page);
+        const checkoutUserInfoPage = new CheckoutInformationPage (page);
+        const checkoutOverviewPage = new CheckoutOverviewPage(page);
+        const checkoutCompletePage = new CheckoutCompletePage(page);
+
+
+        await productPage.addSauceLabBackpackProduct();
+        await expect(productPage.getRemoveSauceLabBackpackLocator).toBeVisible();
+
+        await shoppingCartPage.shoppingCartLink();
+        const sauceLabBackpackItem = await shoppingCartPage.sauceLabBackpackItem();
+        await expect(sauceLabBackpackItem).toHaveText(/Sauce Labs Backpack/);
+
+        await shoppingCartPage.checkout();
+        const checkoutTitle = await checkoutUserInfoPage.checkoutTitle();
+        await expect(checkoutTitle).toHaveText(/Checkout: Your Information/); 
+
+        await checkoutUserInfoPage.enterBuyerInformation(buyerInfoData.buyerInfo.firstname, buyerInfoData.buyerInfo.lastname, buyerInfoData.buyerInfo.zipCode);
+        await checkoutUserInfoPage.continueCheckout();
+        await expect(checkoutOverviewPage.getCheckoutOverviewTitleLocator).toBeVisible();
+
+        await checkoutOverviewPage.finishCheckout();
+        const orderCreatedSuccess = await checkoutCompletePage.orderCreatedSuccessMessage();
+        await expect(orderCreatedSuccess).toHaveText(/Thank you for your order!/);
     });
 
-    test('should allow users to create an order with multiple items', async ({ page }) => {
-      
-    });
 });
+
+test('should allow users to create an order with multiple items', async ({ page }) => {
+
+});
+
 
 test.describe('Interactions with an Order', () => {
     test('should allow users to remove an order from basket', async ({ page }) => {
-        
+
     });
 
 

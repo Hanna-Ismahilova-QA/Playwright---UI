@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import LoginPage from '../pages/loginPage';
-import * as userData from '../fixtures/userData.json';
+import * as userData from '../fixtures/loginUserData.json';
 import ProductPage from '../pages/productPage';
 
 
@@ -35,7 +35,7 @@ test.describe('User Authentication Validation', () => {
     const invalidUsernameError = await loginPage.requiredUsernameOrPasswordValidation();
     await expect(invalidUsernameError).toHaveText(/Epic sadface: Username is required/);  });
 
-  test.only('should not allow users to log when password missing', async ({ page }) => {
+  test('should not allow users to log when password missing', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.login(userData.validUser.username, "")
