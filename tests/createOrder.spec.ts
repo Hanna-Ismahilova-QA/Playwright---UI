@@ -20,13 +20,13 @@ test.describe('Create an order', () => {
     test('should allow users to create an order with one item', async ({ page }) => {
         const productPage = new ProductPage(page);
         const shoppingCartPage = new ShoppingCartPage(page);
-        const checkoutUserInfoPage = new CheckoutInformationPage (page);
+        const checkoutUserInfoPage = new CheckoutInformationPage(page);
         const checkoutOverviewPage = new CheckoutOverviewPage(page);
         const checkoutCompletePage = new CheckoutCompletePage(page);
 
 
         await productPage.addSauceLabBackpackProduct();
-        await expect(productPage.getRemoveSauceLabBackpackLocator).toBeVisible();
+        await expect(productPage.getRemoveButtonSauceLabBackpackLocator).toBeVisible();
 
         await shoppingCartPage.shoppingCartLink();
         const sauceLabBackpackItem = await shoppingCartPage.sauceLabBackpackItem();
@@ -34,7 +34,7 @@ test.describe('Create an order', () => {
 
         await shoppingCartPage.checkout();
         const checkoutTitle = await checkoutUserInfoPage.checkoutTitle();
-        await expect(checkoutTitle).toHaveText(/Checkout: Your Information/); 
+        await expect(checkoutTitle).toHaveText(/Checkout: Your Information/);
 
         await checkoutUserInfoPage.enterBuyerInformation(buyerInfoData.buyerInfo.firstname, buyerInfoData.buyerInfo.lastname, buyerInfoData.buyerInfo.zipCode);
         await checkoutUserInfoPage.continueCheckout();
@@ -48,6 +48,37 @@ test.describe('Create an order', () => {
 });
 
 test('should allow users to create an order with multiple items', async ({ page }) => {
+    const productPage = new ProductPage(page);
+    const shoppingCartPage = new ShoppingCartPage(page);
+    const checkoutUserInfoPage = new CheckoutInformationPage(page);
+    const checkoutOverviewPage = new CheckoutOverviewPage(page);
+    const checkoutCompletePage = new CheckoutCompletePage(page);
+
+
+    await productPage.addSauceLabBackpackProduct();//Product 1
+    await expect(productPage.getRemoveButtonSauceLabBackpackLocator).toBeVisible();
+    await productPage.addSauceLabsOnesieProduct();//Product 2
+    await expect(productPage.getRemovButtonSauceLabOnesieLocator).toBeVisible();
+
+    await shoppingCartPage.shoppingCartLink();
+
+    const sauceLabBackpackItem = await shoppingCartPage.sauceLabBackpackItem();
+    await expect(sauceLabBackpackItem).toHaveText(/Sauce Labs Backpack/);
+    const sauceLabOnesieItem = await shoppingCartPage.sauceLabOnesieItem();
+    await expect(sauceLabOnesieItem).toHaveText(/Sauce Labs Onesie/);
+
+    await shoppingCartPage.checkout();
+    const checkoutTitle = await checkoutUserInfoPage.checkoutTitle();
+    await expect(checkoutTitle).toHaveText(/Checkout: Your Information/);
+
+    await checkoutUserInfoPage.enterBuyerInformation(buyerInfoData.buyerInfo.firstname, buyerInfoData.buyerInfo.lastname, buyerInfoData.buyerInfo.zipCode);
+    await checkoutUserInfoPage.continueCheckout();
+    await expect(checkoutOverviewPage.getCheckoutOverviewTitleLocator).toBeVisible();
+
+    await checkoutOverviewPage.finishCheckout();
+    const orderCreatedSuccess = await checkoutCompletePage.orderCreatedSuccessMessage();
+    await expect(orderCreatedSuccess).toHaveText(/Thank you for your order!/);
+
 
 });
 

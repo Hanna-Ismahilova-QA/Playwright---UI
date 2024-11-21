@@ -25,4 +25,8 @@ export default class ShoppingCartPage extends ConstShoppingCartLocators {
     async sauceLabBackpackItem() {
         return this.getSauceLabBackpackItemLocator;
     }
+
+    async sauceLabOnesieItem(){
+        return this.getSauceLabOnesieItemLocator;
+    }
 }

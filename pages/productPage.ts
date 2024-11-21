@@ -18,11 +18,19 @@ export default class ProductPage extends ConstProductLocators {
         return this.getInventoryContainerLocator;
     }
 
-    async addSauceLabBackpackProduct(){
+    async addSauceLabBackpackProduct() {
         await this.getAddToCartSauceLabBackpackLocator.click();
     }
 
-    async removeSauceLabBackpackProduct(){
-        await this.getRemoveSauceLabBackpackLocator.click();
+    async addSauceLabsOnesieProduct() {
+        await this.getAddToCartSauceLabsOnesieLocator.click();
+    }
+
+    async removeSauceLabBackpackProduct() {
+        await this.getRemoveButtonSauceLabBackpackLocator.click();
+    }
+
+    async removeSauceLabsOnesieProduct(){
+        await this.getRemovButtonSauceLabOnesieLocator.click();
     }
 }

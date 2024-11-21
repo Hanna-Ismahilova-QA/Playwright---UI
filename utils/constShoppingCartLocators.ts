@@ -4,6 +4,7 @@ export default class ConstShoppingCartLocators {
     readonly page: Page;
     readonly getShoppingCartLinkLocator: Locator;
     readonly getSauceLabBackpackItemLocator: Locator;
+    readonly getSauceLabOnesieItemLocator: Locator;
     readonly getCheckoutButtonLocator: Locator;
 
     constructor(page: Page) {
@@ -17,6 +18,9 @@ export default class ConstShoppingCartLocators {
 
         this.getSauceLabBackpackItemLocator = page
             .locator('[data-test="item-4-title-link"]')
+
+        this.getSauceLabOnesieItemLocator = page
+            .locator('[data-test="item-2-title-link"]')
 
     }
 }
