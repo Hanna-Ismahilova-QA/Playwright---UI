@@ -7,6 +7,7 @@ import ShoppingCartPage from '../pages/shoppingCartPage';
 import CheckoutInformationPage from '../pages/checkoutUserInfoPage';
 import CheckoutOverviewPage from '../pages/checkoutOverviewPage';
 import CheckoutCompletePage from '../pages/checkoutCompletePage';
+import CommonPage from '../pages/commonPage';
 
 
 test.beforeEach(async ({ page }) => {
@@ -84,9 +85,10 @@ test('should allow users to create an order with multiple items', async ({ page 
 
 
 test.describe('Interactions with an Order', () => {
-    test('should allow users to remove an order from basket', async ({ page }) => {
+    test('should allow users to remove an order on product page from basket', async ({ page }) => {
         const productPage = new ProductPage(page);
         const shoppingCartPage = new ShoppingCartPage(page);
+        const commonPage = new CommonPage(page);
 
         await productPage.addSauceLabBackpackProduct();
         await expect(productPage.getRemoveButtonSauceLabBackpackLocator).toBeVisible();
@@ -97,14 +99,29 @@ test.describe('Interactions with an Order', () => {
         await expect(sauceLabBackpackItem).toHaveText(/Sauce Labs Backpack/);
 
         await shoppingCartPage.continueShopping();
-        await productPage.removeSauceLabBackpackProduct();
+        await commonPage.removeSauceLabBackpackProduct();
         await expect(productPage.getAddToCartSauceLabBackpackLocator).toBeVisible();
 
         await shoppingCartPage.shoppingCartLink();
         await expect(sauceLabBackpackItem).toBeHidden();
     });
 
+    test('should allow users to remove an order from basket', async ({ page }) => {
+        const productPage = new ProductPage(page);
+        const shoppingCartPage = new ShoppingCartPage(page);
+        const commonPage = new CommonPage(page);
 
+        await productPage.addSauceLabBackpackProduct();
+        await expect(productPage.getRemoveButtonSauceLabBackpackLocator).toBeVisible();
+
+        await shoppingCartPage.shoppingCartLink();
+
+        const sauceLabBackpackItem = await shoppingCartPage.sauceLabBackpackItem();
+        await expect(sauceLabBackpackItem).toHaveText(/Sauce Labs Backpack/);
+
+        await commonPage.removeSauceLabBackpackProduct();
+        await expect(sauceLabBackpackItem).toBeHidden();
+    });
 });
 
 

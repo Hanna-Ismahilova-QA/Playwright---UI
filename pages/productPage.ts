@@ -26,11 +26,4 @@ export default class ProductPage extends ConstProductLocators {
         await this.getAddToCartSauceLabsOnesieLocator.click();
     }
 
-    async removeSauceLabBackpackProduct() {
-        await this.getRemoveButtonSauceLabBackpackLocator.click();
-    }
-
-    async removeSauceLabsOnesieProduct(){
-        await this.getRemovButtonSauceLabOnesieLocator.click();
-    }
 }
