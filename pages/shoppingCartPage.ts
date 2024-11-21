@@ -22,6 +22,10 @@ export default class ShoppingCartPage extends ConstShoppingCartLocators {
         await this.getCheckoutButtonLocator.click();
     }
 
+    async continueShopping(){
+        await this.getContinueShoppingButtonLocator.click();
+    }
+
     async sauceLabBackpackItem() {
         return this.getSauceLabBackpackItemLocator;
     }

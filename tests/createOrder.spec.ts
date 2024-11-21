@@ -85,7 +85,23 @@ test('should allow users to create an order with multiple items', async ({ page 
 
 test.describe('Interactions with an Order', () => {
     test('should allow users to remove an order from basket', async ({ page }) => {
+        const productPage = new ProductPage(page);
+        const shoppingCartPage = new ShoppingCartPage(page);
 
+        await productPage.addSauceLabBackpackProduct();
+        await expect(productPage.getRemoveButtonSauceLabBackpackLocator).toBeVisible();
+
+        await shoppingCartPage.shoppingCartLink();
+
+        const sauceLabBackpackItem = await shoppingCartPage.sauceLabBackpackItem();
+        await expect(sauceLabBackpackItem).toHaveText(/Sauce Labs Backpack/);
+
+        await shoppingCartPage.continueShopping();
+        await productPage.removeSauceLabBackpackProduct();
+        await expect(productPage.getAddToCartSauceLabBackpackLocator).toBeVisible();
+
+        await shoppingCartPage.shoppingCartLink();
+        await expect(sauceLabBackpackItem).toBeHidden();
     });
 
 

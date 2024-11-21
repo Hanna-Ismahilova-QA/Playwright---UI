@@ -6,9 +6,13 @@ export default class ConstShoppingCartLocators {
     readonly getSauceLabBackpackItemLocator: Locator;
     readonly getSauceLabOnesieItemLocator: Locator;
     readonly getCheckoutButtonLocator: Locator;
+    readonly getContinueShoppingButtonLocator: Locator;
 
     constructor(page: Page) {
         this.page = page;
+
+        this.getContinueShoppingButtonLocator = page
+            .locator('[data-test="continue-shopping"]')
 
         this.getCheckoutButtonLocator = page
             .locator('[data-test="checkout"]')
