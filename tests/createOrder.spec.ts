@@ -25,7 +25,6 @@ test.describe('Create an order', () => {
         const checkoutOverviewPage = new CheckoutOverviewPage(page);
         const checkoutCompletePage = new CheckoutCompletePage(page);
 
-
         await productPage.addSauceLabBackpackProduct();
         await expect(productPage.getRemoveButtonSauceLabBackpackLocator).toBeVisible();
 
@@ -37,7 +36,7 @@ test.describe('Create an order', () => {
         const checkoutTitle = await checkoutUserInfoPage.checkoutTitle();
         await expect(checkoutTitle).toHaveText(/Checkout: Your Information/);
 
-        await checkoutUserInfoPage.enterBuyerInformation(buyerInfoData.buyerInfo.firstname, buyerInfoData.buyerInfo.lastname, buyerInfoData.buyerInfo.zipCode);
+        await checkoutUserInfoPage.buyerInfo(buyerInfoData.buyerInfo.firstname, buyerInfoData.buyerInfo.lastname, buyerInfoData.buyerInfo.postalCode);
         await checkoutUserInfoPage.continueCheckout();
         await expect(checkoutOverviewPage.getCheckoutOverviewTitleLocator).toBeVisible();
 
@@ -55,7 +54,6 @@ test('should allow users to create an order with multiple items', async ({ page 
     const checkoutOverviewPage = new CheckoutOverviewPage(page);
     const checkoutCompletePage = new CheckoutCompletePage(page);
 
-
     await productPage.addSauceLabBackpackProduct();//Product 1
     await expect(productPage.getRemoveButtonSauceLabBackpackLocator).toBeVisible();
     await productPage.addSauceLabsOnesieProduct();//Product 2
@@ -72,17 +70,14 @@ test('should allow users to create an order with multiple items', async ({ page 
     const checkoutTitle = await checkoutUserInfoPage.checkoutTitle();
     await expect(checkoutTitle).toHaveText(/Checkout: Your Information/);
 
-    await checkoutUserInfoPage.enterBuyerInformation(buyerInfoData.buyerInfo.firstname, buyerInfoData.buyerInfo.lastname, buyerInfoData.buyerInfo.zipCode);
+    await checkoutUserInfoPage.buyerInfo(buyerInfoData.buyerInfo.firstname, buyerInfoData.buyerInfo.lastname, buyerInfoData.buyerInfo.postalCode);
     await checkoutUserInfoPage.continueCheckout();
     await expect(checkoutOverviewPage.getCheckoutOverviewTitleLocator).toBeVisible();
 
     await checkoutOverviewPage.finishCheckout();
     const orderCreatedSuccess = await checkoutCompletePage.orderCreatedSuccessMessage();
     await expect(orderCreatedSuccess).toHaveText(/Thank you for your order!/);
-
-
 });
-
 
 test.describe('Interactions with an Order', () => {
     test('should allow users to remove an order on product page from basket', async ({ page }) => {

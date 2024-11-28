@@ -9,7 +9,6 @@ export default class LoginPage
     // Define the selectors for elements on the login page
     readonly page: Page;
 
-
     // Initialize page in the constructor
     constructor(page: Page) {
         super(page);
@@ -21,24 +20,17 @@ export default class LoginPage
         await this.page.goto(url);
     }
 
-    // Locators
+    // Interface fields - Assign Locators
     usernameField = this.getUsernameLocator;
     passwordField = this.getPasswordLocator;
     loginButton = this.getLoginButtonLocator;
 
-    
-    // Encapsulated login method
-    async loginUser(username: string, password:string): Promise<void>{
+    // Encapsulated login method from interface
+    async loginUser(username: string, password: string): Promise<void> {
         await this.usernameField.fill(username);
         await this.passwordField.fill(password);
         await this.loginButton.click();
     }
-
-    // async login(username: string, password: string) {
-    //     await this.getUsernameLocator.fill(username);
-    //     await this.getPasswordLocator.fill(password);
-    //     await this.getLoginButtonLocator.click();
-    // }
 
     async invalidCredentialsValidation() {
         return this.getInvalidCredentialsErrorLocator;

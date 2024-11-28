@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('User Authentication', () => {
   test('should allow users to log in', async ({ page }) => {
-    const loginPage = new LoginPage(page); 
+    const loginPage = new LoginPage(page);
     const productPage = new ProductPage(page);
 
     await loginPage.loginUser(userData.validUser.username, userData.validUser.password);
@@ -36,7 +36,8 @@ test.describe('User Authentication Validation', () => {
     await loginPage.loginUser("", userData.validUser.password);
 
     const invalidUsernameError = await loginPage.requiredUsernameOrPasswordValidation();
-    await expect(invalidUsernameError).toHaveText(/Epic sadface: Username is required/);  });
+    await expect(invalidUsernameError).toHaveText(/Epic sadface: Username is required/);
+  });
 
   test('should not allow users to log when password missing', async ({ page }) => {
     const loginPage = new LoginPage(page);
@@ -45,7 +46,7 @@ test.describe('User Authentication Validation', () => {
 
     const invalidPasswordError = await loginPage.requiredUsernameOrPasswordValidation();
     await expect(invalidPasswordError).toHaveText(/Epic sadface: Password is required/);
-  });  
+  });
 });
 
 
