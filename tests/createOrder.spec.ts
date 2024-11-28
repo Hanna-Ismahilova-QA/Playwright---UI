@@ -14,7 +14,9 @@ test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await page.goto(`${process.env.BASE_URL}`);
-    await loginPage.login(userData.validUser.username, userData.validUser.password)
+    await loginPage.loginUser.usernameField.fill(userData.validUser.username);
+    await loginPage.loginUser.passwordField.fill(userData.validUser.password);
+    await loginPage.loginUser.loginButton.click();
 });
 
 test.describe('Create an order', () => {

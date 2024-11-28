@@ -1,7 +1,7 @@
-// pages/LoginPage.ts
-
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import ConstLoginLocators from '../utils/constLoginLocators';
+import { UserLoginInterface } from "../pages/typesPage";
+
 
 export default class LoginPage extends ConstLoginLocators {
     // Define the selectors for elements on the login page
@@ -19,12 +19,19 @@ export default class LoginPage extends ConstLoginLocators {
         await this.page.goto(url);
     }
 
-    async login(username: string, password: string) {
-        await this.getUsernameLocator.fill(username);
-        await this.getPasswordLocator.fill(password);
-        await this.getLoginButtonLocator.click();
+    loginUser: UserLoginInterface = {
+        usernameField: this.getUsernameLocator,
+        passwordField: this.getPasswordLocator,
+        loginButton: this.getLoginButtonLocator
+
     }
-    
+
+    // async login(username: string, password: string) {
+    //     await this.getUsernameLocator.fill(username);
+    //     await this.getPasswordLocator.fill(password);
+    //     await this.getLoginButtonLocator.click();
+    // }
+
     async invalidCredentialsValidation() {
         return this.getInvalidCredentialsErrorLocator;
     }
