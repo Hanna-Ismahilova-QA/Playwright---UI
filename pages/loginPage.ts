@@ -1,9 +1,11 @@
 import { Locator, Page } from '@playwright/test';
 import ConstLoginLocators from '../utils/constLoginLocators';
-import { UserLoginInterface } from "../pages/typesPage";
+import { UserLoginInterface } from "./interfaces/loginPageInterface";
 
+export default class LoginPage
+    extends ConstLoginLocators
+    implements UserLoginInterface {
 
-export default class LoginPage extends ConstLoginLocators {
     // Define the selectors for elements on the login page
     readonly page: Page;
 
@@ -19,11 +21,17 @@ export default class LoginPage extends ConstLoginLocators {
         await this.page.goto(url);
     }
 
-    loginUser: UserLoginInterface = {
-        usernameField: this.getUsernameLocator,
-        passwordField: this.getPasswordLocator,
-        loginButton: this.getLoginButtonLocator
+    // Locators
+    usernameField = this.getUsernameLocator;
+    passwordField = this.getPasswordLocator;
+    loginButton = this.getLoginButtonLocator;
 
+    
+    // Encapsulated login method
+    async loginUser(username: string, password:string): Promise<void>{
+        await this.usernameField.fill(username);
+        await this.passwordField.fill(password);
+        await this.loginButton.click();
     }
 
     // async login(username: string, password: string) {

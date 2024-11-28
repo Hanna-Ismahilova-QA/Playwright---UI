@@ -13,9 +13,7 @@ test.describe('User Authentication', () => {
     const loginPage = new LoginPage(page); 
     const productPage = new ProductPage(page);
 
-    await loginPage.loginUser.usernameField.fill(userData.validUser.username);
-    await loginPage.loginUser.passwordField.fill(userData.validUser.password);
-    await loginPage.loginUser.loginButton.click();
+    await loginPage.loginUser(userData.validUser.username, userData.validUser.password);
 
     const inventoryContainerLocator = await productPage.inventoryContainer();
     await expect(inventoryContainerLocator).toBeVisible();
@@ -26,9 +24,7 @@ test.describe('User Authentication Validation', () => {
   test('should not allow users to log when username and password invalid', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await loginPage.loginUser.usernameField.fill(userData.invalidUser.username);
-    await loginPage.loginUser.passwordField.fill(userData.invalidUser.password);
-    await loginPage.loginUser.loginButton.click();
+    await loginPage.loginUser(userData.invalidUser.username, userData.invalidUser.password);
 
     const invalidLoginCredentialsError = await loginPage.invalidCredentialsValidation();
     await expect(invalidLoginCredentialsError).toHaveText(/Epic sadface: Username and password do not match any user in this service/);
@@ -37,9 +33,7 @@ test.describe('User Authentication Validation', () => {
   test('should not allow users to log when username missing', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await loginPage.loginUser.usernameField.fill("");
-    await loginPage.loginUser.passwordField.fill(userData.validUser.password);
-    await loginPage.loginUser.loginButton.click();
+    await loginPage.loginUser("", userData.validUser.password);
 
     const invalidUsernameError = await loginPage.requiredUsernameOrPasswordValidation();
     await expect(invalidUsernameError).toHaveText(/Epic sadface: Username is required/);  });
@@ -47,9 +41,7 @@ test.describe('User Authentication Validation', () => {
   test('should not allow users to log when password missing', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await loginPage.loginUser.usernameField.fill(userData.validUser.username);
-    await loginPage.loginUser.passwordField.fill("");
-    await loginPage.loginUser.loginButton.click();
+    await loginPage.loginUser(userData.validUser.username, "");
 
     const invalidPasswordError = await loginPage.requiredUsernameOrPasswordValidation();
     await expect(invalidPasswordError).toHaveText(/Epic sadface: Password is required/);
