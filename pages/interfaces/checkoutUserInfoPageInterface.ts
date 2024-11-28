@@ -4,6 +4,8 @@ export interface BuyerInfoInterface {
     postalCodeField: Locator
 
     buyerInfo(name: string, lastname: string, postalCode: string): Promise<void>;
+
+    resetBuyerInfo(): Promise<boolean>;
 }
 
 type Locator = any;
