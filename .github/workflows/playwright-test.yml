@@ -33,7 +33,7 @@ jobs:
     - name: Run Playwright tests
       env:
         BASE_URL: https://www.saucedemo.com
-      run: npx playwright test --reporter=list # or --reporter=html
+      run: npx playwright test --reporter=list | sed -n 's/.*› //p' # or --reporter=html
 
 
     # 6. Upload test results (optional)
