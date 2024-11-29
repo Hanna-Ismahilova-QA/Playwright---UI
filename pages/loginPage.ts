@@ -9,6 +9,7 @@ export default class LoginPage
     // Define the selectors for elements on the login page
     readonly page: Page;
 
+
     // Initialize page in the constructor
     constructor(page: Page) {
         super(page);
