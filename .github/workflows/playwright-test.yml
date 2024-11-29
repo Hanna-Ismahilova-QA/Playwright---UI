@@ -33,7 +33,7 @@ jobs:
     - name: Run Playwright tests
       env:
         BASE_URL: https://www.saucedemo.com
-      run: npx playwright test --reporter=dot | sed -n 's/^\(.*\) › \(.*\) (\([0-9\.]*s\))$/\1 - \2 [\3] [PASS]/p'' # or --reporter=html
+      run: npx playwright test --reporter=list | sed -n 's/^\(.*\) › \(.*\) (\([0-9\.]*s\))$/\1 - \2 [\3] ✔/p' # or --reporter=html
 
 
     # 6. Upload test results (optional)
