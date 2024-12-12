@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
-import LoginPage from '../pages/loginPage';
-import * as userData from '../fixtures/loginUserData.json';
-import * as buyerInfoData from '../fixtures/checkoutBuyerInfo.json';
-import ProductPage from '../pages/productPage';
-import ShoppingCartPage from '../pages/shoppingCartPage';
-import CheckoutInformationPage from '../pages/checkoutUserInfoPage';
-import CheckoutOverviewPage from '../pages/checkoutOverviewPage';
-import CheckoutCompletePage from '../pages/checkoutCompletePage';
-import CommonPage from '../pages/commonPage';
+import LoginPage from '../../pages/loginPage';
+import * as userData from '../../fixtures/loginUserData.json';
+import * as buyerInfoData from '../../fixtures/checkoutBuyerInfo.json';
+import ProductPage from '../../pages/productPage';
+import ShoppingCartPage from '../../pages/shoppingCartPage';
+import CheckoutInformationPage from '../../pages/checkoutUserInfoPage';
+import CheckoutOverviewPage from '../../pages/checkoutOverviewPage';
+import CheckoutCompletePage from '../../pages/checkoutCompletePage';
+import CommonPage from '../../pages/commonPage';
 
 
 test.beforeEach(async ({ page }) => {

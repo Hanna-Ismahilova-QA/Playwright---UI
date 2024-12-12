@@ -9,5 +9,8 @@
     "@types/node": "^22.9.0",
     "cross-env": "^7.0.3"
   },
-  "scripts": {}
+  "scripts": {
+    "test": "npx playwright test",
+    "test-us": "npx playwright test --update-snapshots"
+  }
 }

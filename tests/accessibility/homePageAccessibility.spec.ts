@@ -1,4 +1,4 @@
-import { test, expect } from '../accessibility/fixtures';
+import { test, expect } from './accessability-fixtures';
 import LoginPage from '../../pages/loginPage';
 import * as userData from '../../fixtures/loginUserData.json';
 import AxeBuilder from '@axe-core/playwright';

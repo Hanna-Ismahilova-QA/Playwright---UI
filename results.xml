@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="6.848416">
-<testsuite name="accessibility/homePageAccessibility.spec.ts" timestamp="2024-12-12T15:32:11.604Z" hostname="chromium" tests="1" failures="0" skipped="0" time="4.216" errors="0">
-<testcase name="homepage › should not have any automatically detectable accessibility issues" classname="accessibility/homePageAccessibility.spec.ts" time="4.216">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="4.269540999999999">
+<testsuite name="visual-comparison/visual.spec.ts" timestamp="2024-12-12T17:21:34.866Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.556" errors="0">
+<testcase name="Visual Comparison › should compare homepage without dynamic content" classname="visual-comparison/visual.spec.ts" time="2.556">
 </testcase>
 </testsuite>
 </testsuites>

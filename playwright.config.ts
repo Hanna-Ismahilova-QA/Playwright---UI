@@ -40,6 +40,7 @@ export default defineConfig({
     screenshot: 'only-on-failure', // Take screenshots only when a test fails
     video: 'retain-on-failure', // Record video only when a test fails,
   },
+  testMatch:["visual.spec.ts"],
   /* Configure projects for major browsers */
   projects: [
     {

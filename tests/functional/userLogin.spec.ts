@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import LoginPage from '../pages/loginPage';
-import * as userData from '../fixtures/loginUserData.json';
-import ProductPage from '../pages/productPage';
+import LoginPage from '../../pages/loginPage';
+import * as userData from '../../fixtures/loginUserData.json';
+import ProductPage from '../../pages/productPage';
 
 
 test.beforeEach(async ({ page }) => {
