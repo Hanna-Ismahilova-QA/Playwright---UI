@@ -11,7 +11,7 @@ test.describe('Visual Comparison', () => {
 
     });
 
-    test.only('should compare homepage without dynamic content', async ({ page }) => {
+    test('should compare homepage without dynamic content', async ({ page }) => {
         await page.goto("https://www.saucedemo.com");
 
         const loginPage = new LoginPage(page);
