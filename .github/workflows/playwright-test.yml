@@ -48,3 +48,10 @@ jobs:
       with:
         name: test-results
         path: playwright-report/
+
+    # 7. Screenshots
+    - name: Update or create snapshots
+      run: 
+        npx playwright test --update-snapshots
+
+
