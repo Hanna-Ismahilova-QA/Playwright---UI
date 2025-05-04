@@ -14,10 +14,24 @@ export default class ConstUsersSubsectioLocators {
   readonly getSearchEmployeeNameLocator: Locator;
   readonly getEmployeeNameSearchResultLocator: Locator;
   readonly getEmployeeNameRowLocator: Locator;
+  readonly getSearchResultStatusRowLocator: Locator;
+  readonly getSearchStatusLocator: Locator;
+  readonly getStatusDropdownEnabledOptionLocator: Locator;
 
   constructor(page: Page) {
     this.page = page;
 
+    this.getSearchResultStatusRowLocator = page
+      .locator(".oxd-table-card > .oxd-table-row > div:nth-child(5) > div")
+      .first();
+
+    this.getSearchStatusLocator = page.locator(
+      "div:nth-child(4) > .oxd-input-group > div:nth-child(2) > .oxd-select-wrapper > .oxd-select-text"
+    );
+
+    this.getStatusDropdownEnabledOptionLocator = page
+      .getByRole("option", { name: "Enabled" })
+      .locator("span");
     this.getSearchEmployeeNameLocator =
       page.getByPlaceholder("Type for hints...");
 

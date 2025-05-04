@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="5.765612999999999">
-<testsuite name="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" timestamp="2025-05-04T20:15:50.397Z" hostname="chromium" tests="1" failures="0" skipped="0" time="5.089" errors="0">
-<testcase name="Search user by options › Should allow users to search by username" classname="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" time="5.089">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="5.829943">
+<testsuite name="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" timestamp="2025-05-04T20:54:45.127Z" hostname="chromium" tests="1" failures="0" skipped="0" time="5.195" errors="0">
+<testcase name="Search user by options › should allow users to filter by status" classname="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" time="5.195">
 </testcase>
 </testsuite>
 </testsuites>

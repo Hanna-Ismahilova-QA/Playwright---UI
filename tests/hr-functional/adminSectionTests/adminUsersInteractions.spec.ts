@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Search user by options', () => {
-    test('Should allow users to search by username', async ({ page }) => {
+    test('should allow users to search by username', async ({ page }) => {
         const usersPage = new UsersSubsectionPage(page);
 
         await usersPage.fillUsernameField(usersData.username);
@@ -43,7 +43,7 @@ test.describe('Search user by options', () => {
         await expect(userRoleSearchResults).toHaveText(/ESS/); 
     });
 
-    test('Should allow users to search by employee name', async ({ page }) => {
+    test('should allow users to search by employee name', async ({ page }) => {
         const usersPage = new UsersSubsectionPage(page);
 
         await usersPage.fillEmployeeNameField(usersData.employee_name)
@@ -54,8 +54,16 @@ test.describe('Search user by options', () => {
         await expect(userEmployeeNameResults).toBeVisible(); 
     });
 
+    test('should allow users to filter by status', async ({ page }) => {
+        const usersPage = new UsersSubsectionPage(page);
 
-    
+        await usersPage.clickStatusDropdown
+        await usersPage.selectStatusEnabledOption
+        await usersPage.clickSearchButton();
+
+        const userStatusResults = await usersPage.returnSearchResultsStatusRow();
+        await expect(userStatusResults).toBeVisible(); 
+    });
 
 });
 

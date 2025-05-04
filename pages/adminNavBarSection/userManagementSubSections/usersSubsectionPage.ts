@@ -20,7 +20,7 @@ export default class UsersSubsectionPage extends ConstUsersSubsectioLocators {
     await this.getSearchUsernameLocator.fill(username);
   }
 
-  async fillEmployeeNameField(employee_name : string){
+  async fillEmployeeNameField(employee_name: string) {
     await this.getSearchEmployeeNameLocator.fill(employee_name);
   }
 
@@ -36,8 +36,12 @@ export default class UsersSubsectionPage extends ConstUsersSubsectioLocators {
     return this.getSearchResultUserRoleEssRowLocator;
   }
 
-  async returnSearchResulrEmployeeNameRow(){
+  async returnSearchResulrEmployeeNameRow() {
     return this.getEmployeeNameRowLocator;
+  }
+
+  async returnSearchResultsStatusRow(){
+    return this.getSearchResultStatusRowLocator;
   }
 
   async returnSearchResultsCount() {
@@ -48,13 +52,19 @@ export default class UsersSubsectionPage extends ConstUsersSubsectioLocators {
     await this.getUserRoleDropdownLocator.click();
   }
 
+  async clickStatusDropdown() {
+    await this.getSearchStatusLocator.click();
+  }
+
   async selectUserRoleEssOptin() {
     await this.getUserRoleDropdownEssOptionLocator.click();
   }
 
-  async selectEmployeeNameFromTheList(){
+  async selectEmployeeNameFromTheList() {
     await this.getEmployeeNameSearchResultLocator.click();
   }
 
-
+  async selectStatusEnabledOption(){
+    await this.getStatusDropdownEnabledOptionLocator.click();
+  }
 }
