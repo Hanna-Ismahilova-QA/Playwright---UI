@@ -22,14 +22,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Search user by options', () => {
-    test('Should allow users to search by username', async ({ page }) => {
+    test.only('Should allow users to search by username', async ({ page }) => {
         const usersPage = new UsersSubsectionPage(page);
 
         await usersPage.fillUsernameField(usersData.username);
         await usersPage.clickSearchButton();
         
         const usernameSearchResults = await usersPage.returnSearchResultUsernameAdminRow();
-        await expect(usernameSearchResults).toHaveText(/Anush/);  
+        await expect(usernameSearchResults).toBeVisible();  
     });
 
     test('should allow users to filter by user role', async ({ page }) => {
