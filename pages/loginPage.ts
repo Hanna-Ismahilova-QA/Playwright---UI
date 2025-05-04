@@ -40,4 +40,5 @@ export default class LoginPage
     async requiredUsernameOrPasswordValidation() {
         return this.getRequiredUsernameOrPasswordErrorLocator;
     }
+
 }

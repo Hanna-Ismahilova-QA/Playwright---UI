@@ -2,7 +2,7 @@ import { Locator, Page } from "@playwright/test";
 
 export default class ConstProductLocators {
     readonly page: Page;
-    readonly getInventoryContainerLocator: Locator;
+    readonly getDashboardHeaderLocator: Locator;
     readonly getAddToCartSauceLabBackpackLocator: Locator;
     readonly getAddToCartSauceLabsOnesieLocator: Locator;
     readonly getRemoveButtonSauceLabBackpackLocator: Locator;
@@ -17,8 +17,8 @@ export default class ConstProductLocators {
         this.getAddToCartSauceLabBackpackLocator = page
             .locator('[data-test="add-to-cart-sauce-labs-backpack"]')
 
-        this.getInventoryContainerLocator = page
-            .locator('[data-test="inventory-container"]');
+        this.getDashboardHeaderLocator = page
+            .getByRole('heading', { name: 'Dashboard' });
 
         this.getRemoveButtonSauceLabBackpackLocator = page
             .locator('[data-test="remove-sauce-labs-backpack"]')
