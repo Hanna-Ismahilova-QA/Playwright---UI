@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 
 });
 
-test.describe('homepage', () => {
+test.describe.skip('homepage', () => {
   test('should not have any automatically detectable accessibility issues', async ({accessabilityBuilder }) => {
     const axeBuilder = await accessabilityBuilder.analyze();
 

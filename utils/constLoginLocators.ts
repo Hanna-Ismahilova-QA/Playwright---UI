@@ -1,34 +1,32 @@
 import { Locator, Page } from "@playwright/test";
 
 export default class ConstLoginLocators {
-    readonly page: Page;
-    readonly getInventoryContainerLocator: Locator;
-    readonly getUsernameLocator: Locator;
-    readonly getPasswordLocator: Locator;
-    readonly getLoginButtonLocator: Locator;
-    readonly getInvalidCredentialsErrorLocator: Locator;
-    readonly getRequiredUsernameOrPasswordErrorLocator: Locator;
+  readonly page: Page;
+  readonly getInventoryContainerLocator: Locator;
+  readonly getUsernameLocator: Locator;
+  readonly getPasswordLocator: Locator;
+  readonly getLoginButtonLocator: Locator;
+  readonly getInvalidCredentialsErrorLocator: Locator;
+  readonly  getRequiredUsernameOrPasswordErrorLocator: Locator;
 
-    constructor(page: Page) {
-        this.page = page;
+  constructor(page: Page) {
+    this.page = page;
 
-        this.getRequiredUsernameOrPasswordErrorLocator = page
-            .locator('[data-test="error"]')
+    this.getRequiredUsernameOrPasswordErrorLocator = page.getByText('Required');
 
-        this.getInvalidCredentialsErrorLocator = page
-            .locator('[data-test="error"]');
+    this.getInvalidCredentialsErrorLocator = page
+      .getByRole("alert")
+      .locator("div")
+      .filter({ hasText: "Invalid credentials" });
 
-        this.getInventoryContainerLocator = page
-            .locator('[data-test="inventory-container"]');
+    this.getInventoryContainerLocator = page.locator(
+      '[data-test="inventory-container"]'
+    );
 
-        this.getUsernameLocator = page
-            .locator('[data-test="username"]');
+    this.getUsernameLocator = page.getByPlaceholder("Username");
 
-        this.getPasswordLocator = page
-            .locator('[data-test="password"]');
+    this.getPasswordLocator = page.getByPlaceholder("Password");
 
-        this.getLoginButtonLocator = page
-            .locator('[data-test="login-button"]');
-    }
+    this.getLoginButtonLocator = page.getByRole("button", { name: "Login" });
+  }
 }
-

@@ -1,10 +1,8 @@
-// pages/LoginPage.ts
-
 import { Page } from '@playwright/test';
 import ConstProductLocators from '../utils/constProductLocators';
 
-export default class ProductPage extends ConstProductLocators {
-    // Define the selectors for elements on the login page
+export default class DashboardPage extends ConstProductLocators {
+    // Define the selectors for elements on the Dashboard page
     readonly page: Page;
 
 
@@ -14,9 +12,19 @@ export default class ProductPage extends ConstProductLocators {
         this.page = page;
     }
 
-    async inventoryContainer() {
-        return this.getInventoryContainerLocator;
+    async dashboardHeader() {
+        return this.getDashboardHeaderLocator;
     }
+
+
+
+
+
+
+
+
+
+
 
     async addSauceLabBackpackProduct() {
         await this.getAddToCartSauceLabBackpackLocator.click();

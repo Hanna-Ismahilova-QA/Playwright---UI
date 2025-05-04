@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="4.269540999999999">
-<testsuite name="visual-comparison/visual.spec.ts" timestamp="2024-12-12T17:21:34.866Z" hostname="chromium" tests="1" failures="0" skipped="0" time="2.556" errors="0">
-<testcase name="Visual Comparison › should compare homepage without dynamic content" classname="visual-comparison/visual.spec.ts" time="2.556">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="7.076912">
+<testsuite name="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" timestamp="2025-05-04T19:40:02.025Z" hostname="chromium" tests="1" failures="0" skipped="0" time="6.413" errors="0">
+<testcase name="Search user by options › Should allow users to search by employee name" classname="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" time="6.413">
 </testcase>
 </testsuite>
 </testsuites>

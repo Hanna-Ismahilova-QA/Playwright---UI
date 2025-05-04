@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import LoginPage from '../../pages/loginPage';
 import * as userData from '../../fixtures/loginUserData.json';
-import ProductPage from '../../pages/productPage';
+import DashboardPage from '../../pages/dashboardPage';
 
 
 test.beforeEach(async ({ page }) => {
@@ -11,12 +11,12 @@ test.beforeEach(async ({ page }) => {
 test.describe('User Authentication', () => {
   test('should allow users to log in', async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const productPage = new ProductPage(page);
+    const dashboardPagePage = new DashboardPage(page);
 
     await loginPage.loginUser(userData.validUser.username, userData.validUser.password);
 
-    const inventoryContainerLocator = await productPage.inventoryContainer();
-    await expect(inventoryContainerLocator).toBeVisible();
+    const dashboardHeaderLocator = await dashboardPagePage.dashboardHeader();
+    await expect(dashboardHeaderLocator).toBeVisible();
   });
 });
 
@@ -27,7 +27,7 @@ test.describe('User Authentication Validation', () => {
     await loginPage.loginUser(userData.invalidUser.username, userData.invalidUser.password);
 
     const invalidLoginCredentialsError = await loginPage.invalidCredentialsValidation();
-    await expect(invalidLoginCredentialsError).toHaveText(/Epic sadface: Username and password do not match any user in this service/);
+    await expect(invalidLoginCredentialsError).toHaveText(/Invalid credentials/);
   });
 
   test('should not allow users to log when username missing', async ({ page }) => {
@@ -36,7 +36,7 @@ test.describe('User Authentication Validation', () => {
     await loginPage.loginUser("", userData.validUser.password);
 
     const invalidUsernameError = await loginPage.requiredUsernameOrPasswordValidation();
-    await expect(invalidUsernameError).toHaveText(/Epic sadface: Username is required/);
+    await expect(invalidUsernameError).toHaveText(/Required/);
   });
 
   test('should not allow users to log when password missing', async ({ page }) => {
@@ -45,7 +45,7 @@ test.describe('User Authentication Validation', () => {
     await loginPage.loginUser(userData.validUser.username, "");
 
     const invalidPasswordError = await loginPage.requiredUsernameOrPasswordValidation();
-    await expect(invalidPasswordError).toHaveText(/Epic sadface: Password is required/);
+    await expect(invalidPasswordError).toHaveText(/Required/);
   });
 });
 
