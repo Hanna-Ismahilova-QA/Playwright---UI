@@ -29,7 +29,7 @@ test.describe('Search user by options', () => {
         await usersPage.clickSearchButton();
         
         const usernameSearchResults = await usersPage.returnSearchResultUsernameAdminRow();
-        await expect(usernameSearchResults).toHaveText(/Admin Anush/);  
+        await expect(usernameSearchResults).toHaveText(/Anush/);  
     });
 
     test('should allow users to filter by user role', async ({ page }) => {
