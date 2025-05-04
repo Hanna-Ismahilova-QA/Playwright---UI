@@ -15,7 +15,6 @@ export default class ConstUsersSubsectioLocators {
   readonly getEmployeeNameSearchResultLocator: Locator;
   readonly getEmployeeNameRowLocator: Locator;
 
-
   constructor(page: Page) {
     this.page = page;
 
@@ -30,9 +29,9 @@ export default class ConstUsersSubsectioLocators {
 
     this.getSearchButtonLocator = page.getByRole("button", { name: "Search" });
 
-    this.getSearchResultUsernameAdminRowLocator = page.getByRole("row", {
-      name: " Admin Admin Anush Amirkh",
-    });
+    this.getSearchResultUsernameAdminRowLocator = page
+      .getByRole("cell", { name: "Admin" })
+      .first();
 
     this.getSearchResultUserRoleEssRowLocator = page.getByRole("row", {
       name: " FMLName1 ESS FName LName",
