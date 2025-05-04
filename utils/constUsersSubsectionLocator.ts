@@ -15,6 +15,7 @@ export default class ConstUsersSubsectioLocators {
   readonly getEmployeeNameSearchResultLocator: Locator;
   readonly getEmployeeNameRowLocator: Locator;
 
+
   constructor(page: Page) {
     this.page = page;
 
