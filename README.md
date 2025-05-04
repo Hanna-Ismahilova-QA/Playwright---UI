@@ -53,7 +53,7 @@ Automate and validate key workflows of the OrangeHRM platform including:
 
 ---
 
-## 🧪 Sample Test Cases
+## 🧪 Test Cases
 
 - ✅ **User Authentication/Should allow users to log in**
 - ✅ **User Authentication Validation/Should not allow users to log when username and password invalid**
