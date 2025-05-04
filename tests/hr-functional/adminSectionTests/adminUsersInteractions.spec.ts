@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Search user by options', () => {
-    test.only('Should allow users to search by username', async ({ page }) => {
+    test('Should allow users to search by username', async ({ page }) => {
         const usersPage = new UsersSubsectionPage(page);
 
         await usersPage.fillUsernameField(usersData.username);
