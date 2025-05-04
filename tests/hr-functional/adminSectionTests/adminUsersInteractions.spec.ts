@@ -29,7 +29,7 @@ test.describe('Search user by options', () => {
         await usersPage.clickSearchButton();
         
         const usernameSearchResults = await usersPage.returnSearchResultUsernameAdminRow();
-        await expect(usernameSearchResults).toBeVisible();  
+        await expect(usernameSearchResults).toHaveText(/Admin Anush/);  
     });
 
     test('should allow users to filter by user role', async ({ page }) => {
@@ -40,10 +40,7 @@ test.describe('Search user by options', () => {
         await usersPage.clickSearchButton();
 
         const userRoleSearchResults = await usersPage.returnSearchResultUserRoleEssRow();
-        await expect(userRoleSearchResults).toBeVisible(); 
-
-        const userRoleSearchResultsCount = await usersPage.returnSearchResultsCount();
-        await expect(userRoleSearchResultsCount).toBeVisible(); 
+        await expect(userRoleSearchResults).toHaveText(/ESS/); 
     });
 
     test('Should allow users to search by employee name', async ({ page }) => {
