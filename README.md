@@ -63,6 +63,7 @@ Automate and validate key workflows of the OrangeHRM platform including:
 - ✅ **Search user by options/Should allow users to filter by user role**
 - ✅ **Search user by options/Should allow users to search by employee name**
 - ✅ **Search user by options/Should allow users to filter by status**
+- ✅ **New user addition/Should allow users to add a new user**
 - ✅ **WIP**
 
 
