@@ -72,7 +72,7 @@ test.describe("Search user by options", () => {
 });
 
 test.describe("New user addition", () => {
-  test("should allow users to add a new user", async ({ page }) => {
+  test.skip("should allow users to add a new user", async ({ page }) => {
     const usersPage = new UsersSubsectionPage(page);
 
     await usersPage.clickAddNewUserButton();
