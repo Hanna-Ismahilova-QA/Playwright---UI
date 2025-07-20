@@ -1,7 +1,7 @@
 {
   "newValidUser": {
-    "employee_name": "Emily Jones",
-    "username": "Super Hero",
+    "employee_name": "Anon Sampleton",
+    "username": "AnonUser",
     "password": "test123",
     "confirm_password": "test123"
   }

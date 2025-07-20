@@ -1,45 +1,6 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="30.749436">
-<testsuite name="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" timestamp="2025-06-14T15:04:44.178Z" hostname="chromium" tests="1" failures="1" skipped="0" time="30.098" errors="0">
-<testcase name="New user addition › should allow users to add a new user" classname="hr-functional/adminSectionTests/adminUsersInteractions.spec.ts" time="30.098">
-<failure message="adminUsersInteractions.spec.ts:75:8 should allow users to add a new user" type="FAILURE">
-<![CDATA[  [chromium] › hr-functional/adminSectionTests/adminUsersInteractions.spec.ts:75:8 › New user addition › should allow users to add a new user 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByRole('button', { name: ' Yes, Delete' })
-
-
-       at ../pages/adminNavBarSection/userManagementSubSections/usersSubsectionPage.ts:123
-
-      121 |
-      122 |   async clickYesDeleteButton() {
-    > 123 |     await this.getConfirmDeletionButtonLocator.click();
-          |                                                ^
-      124 |   }
-      125 |
-      126 |   async tickOnUserSuperHeroRow(){
-
-        at UsersSubsectionPage.clickYesDeleteButton (/Users/hannaismahilova/Documents/Playwright---UI/pages/adminNavBarSection/userManagementSubSections/usersSubsectionPage.ts:123:48)
-        at /Users/hannaismahilova/Documents/Playwright---UI/tests/hr-functional/adminSectionTests/adminUsersInteractions.spec.ts:105:21
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/hr-functional-adminSection-de2e0-low-users-to-add-a-new-user-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/hr-functional-adminSection-de2e0-low-users-to-add-a-new-user-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|test-results/hr-functional-adminSection-de2e0-low-users-to-add-a-new-user-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/hr-functional-adminSection-de2e0-low-users-to-add-a-new-user-chromium/video.webm]]
-]]>
-</system-out>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="22.130294">
+<testsuite name="hr-functional/adminSectionTests/addNewUserInteractions.spec.ts" timestamp="2025-06-29T12:10:39.377Z" hostname="chromium" tests="1" failures="0" skipped="0" time="21.463" errors="0">
+<testcase name="New user addition › should allow users to add a new user" classname="hr-functional/adminSectionTests/addNewUserInteractions.spec.ts" time="21.463">
 </testcase>
 </testsuite>
 </testsuites>

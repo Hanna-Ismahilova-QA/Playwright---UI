@@ -1,0 +1,9 @@
+{
+  "newValidEmployee": {
+    "first_name": "Anon",
+    "last_name": "Sampleton",
+    "username": "AnonEmployee",
+    "password": "test123",
+    "confirm_password": "test123"
+  }
+}

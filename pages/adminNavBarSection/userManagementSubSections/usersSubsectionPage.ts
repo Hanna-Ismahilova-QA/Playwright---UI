@@ -123,11 +123,11 @@ export default class UsersSubsectionPage extends ConstUsersSubsectioLocators {
     await this.getConfirmDeletionButtonLocator.click();
   }
 
-  async tickOnUserSuperHeroRow(){
-    await this.getSuperHeroCheckboxLocator.click();
+  async tickOnUserMainSelectAllCheckbox(){
+    await this.getMainSelectAllCheckboxLocator.click();
   }
 
-  async clickDeleteSelectedCheckboxButton(){
+  async clickDeleteSelectedUserCheckboxButton(){
     const confirmDeletionButton = this.getDeleteSelectedButtonLocator;
     await confirmDeletionButton.waitFor({state: 'visible'});
     await expect(confirmDeletionButton).toBeEnabled();

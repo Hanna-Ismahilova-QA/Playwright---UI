@@ -31,15 +31,19 @@ export default class ConstUsersSubsectioLocators {
   readonly getNewUserSaveButtonLocator: Locator;
   readonly getDeleteButtonLocator: Locator;
   readonly getConfirmDeletionButtonLocator: Locator;
-  readonly getSuperHeroCheckboxLocator: Locator;
+  readonly getMainSelectAllCheckboxLocator: Locator;
   readonly getDeleteSelectedButtonLocator: Locator;
 
   constructor(page: Page) {
     this.page = page;
 
-    this.getDeleteSelectedButtonLocator = page.getByRole('button', { name: ' Delete Selected' });
+    this.getDeleteSelectedButtonLocator = page.getByRole("button", {
+      name: " Delete Selected",
+    });
 
-    this.getSuperHeroCheckboxLocator = page.getByRole('columnheader', { name: '' }).locator('i');
+    this.getMainSelectAllCheckboxLocator = page
+      .getByRole("columnheader", { name: "" })
+      .locator("i");
 
     this.getConfirmDeletionButtonLocator = page.getByRole("button", {
       name: " Yes, Delete",
@@ -67,7 +71,7 @@ export default class ConstUsersSubsectioLocators {
       .nth(2);
 
     this.getNewEmployeeNameOptionLocator = page.getByRole("option", {
-      name: "Emily Jones",
+      name: "Anon Sampleton",
     });
 
     this.getNewEmployeeNameFieldLocator =
@@ -112,9 +116,9 @@ export default class ConstUsersSubsectioLocators {
     this.getSearchResultUsernameSuperHeroRowLocator =
       page.getByText("Super Hero");
 
-    this.getSearchResultUserRoleEssRowLocator = page.getByRole("row", {
-      name: " FMLName1 ESS FName LName",
-    });
+    this.getSearchResultUserRoleEssRowLocator = page
+      .locator(".oxd-table-card > .oxd-table-row > div:nth-child(3)")
+      .first();
 
     this.getSearchResulsCountLocator = page.getByText("(6) Records Found");
 
