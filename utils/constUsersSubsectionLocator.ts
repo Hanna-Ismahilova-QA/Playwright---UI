@@ -22,7 +22,7 @@ export default class ConstUsersSubsectioLocators {
   readonly getNewUserRoleDropdownLocator: Locator;
   readonly getNewUserRoleAdminOptionLocator: Locator;
   readonly getNewEmployeeNameFieldLocator: Locator;
-  readonly getNewEmployeeNameOptionLocator: Locator;
+  readonly getNewEmployeeNameAnonOptionLocator: Locator;
   readonly getNewUserStatusDropdownLocator: Locator;
   readonly getNewUserStatusEnabledOptionLocator: Locator;
   readonly getNewUserUsernameFieldLocator: Locator;
@@ -70,7 +70,7 @@ export default class ConstUsersSubsectioLocators {
       .filter({ hasText: /^-- Select --$/ })
       .nth(2);
 
-    this.getNewEmployeeNameOptionLocator = page.getByRole("option", {
+    this.getNewEmployeeNameAnonOptionLocator = page.getByRole("option", {
       name: "Anon Sampleton",
     });
 

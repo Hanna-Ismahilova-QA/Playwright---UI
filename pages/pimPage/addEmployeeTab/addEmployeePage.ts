@@ -1,6 +1,5 @@
 import { Page } from "playwright";
 import ConstPIMAddEmployeeLocators from "../../../utils/constPIMAddEmployeeLocators";
-import ClaimClass from "../../claimPage";
 import { expect } from "playwright/test";
 
 export default class AddEmployeePage extends ConstPIMAddEmployeeLocators {

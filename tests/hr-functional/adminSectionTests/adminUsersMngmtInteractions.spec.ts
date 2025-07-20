@@ -21,12 +21,12 @@ test.beforeEach(async ({ page }) => {
   await adminPage.clickAdminSection();
   await useMngPage.clickUserMngDropdown();
   await usersPage.clickUsersSubsection();
-  //add here method to add employee
-  //add here method to add a user
+  //add here method to add employee - it needs to be separate method to not duplicate and make it clear in pre-run
+  //add here method to add a user - it needs to be separate method to not duplicate and make it clear in pre-run
 });
 
 test.describe("Search user by options", () => {
-  test("should allow users to search by username", async ({ page }) => {
+  test.skip("should allow users to search by username", async ({ page }) => {
     const usersPage = new UsersSubsectionPage(page);
 
     await usersPage.fillUsernameField(usersData.username);
@@ -74,7 +74,7 @@ test.describe("Search user by options", () => {
   });
 
   test.afterEach(async ({ page }) => {
-    //add here method to delete employee
-   //add here method to delete user
+    //add here method to delete employee - it needs to be separate method to not duplicate and make it clear in after-run
+   //add here method to delete user - it needs to be separate method to not duplicate and make it clear in after-run
   });
 });

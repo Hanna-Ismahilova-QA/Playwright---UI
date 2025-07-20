@@ -9,9 +9,10 @@ import PIMPage from "../../../pages/pimPage/pimPage";
 import AddEmployeePage from "../../../pages/pimPage/addEmployeeTab/addEmployeePage";
 import { DataGenerator } from "../../../utils/dataGenerator";
 import * as newEmployeeData from "../../../fixtures/newEmployeeData.json";
-import EmployeeListPage from "../../../pages/pimPage/employeeListTab/employeeListPage";
+import EmployeeListActionsPage from "../../../pages/pimPage/employeeListTab/employeeListActions";
+import SystemUsersPage from "../../../pages/adminNavBarSection/systemUsersPage";
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page, context }) => {
   const loginPage = new LoginPage(page);
   const adminPage = new AdminPage(page);
   const useMngPage = new UserManagementPage(page);
@@ -19,7 +20,12 @@ test.beforeEach(async ({ page }) => {
   const pimPage = new PIMPage(page);
   const addNewEmployee = new AddEmployeePage(page);
 
+  await context.clearCookies();
   await page.goto(`${process.env.BASE_URL}`);
+  await page.evaluate(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  });
   await loginPage.loginUser(
     loginData.validUser.username,
     loginData.validUser.password
@@ -42,7 +48,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("New user addition", () => {
-  test.only("should allow users to add a new user", async ({ page }) => {
+  test("should allow users to add a new user", async ({ page }) => {
     const usersPage = new UsersSubsectionPage(page);
     const addNewEmployee = new AddEmployeePage(page);
 
@@ -70,32 +76,13 @@ test.describe("New user addition", () => {
   });
 
   test.afterEach(async ({ page }) => {
-    const usersPage = new UsersSubsectionPage(page);
-    const pimPage = new PIMPage(page);
-    const employeeListPage = new EmployeeListPage(page);
+    const employeeListActionsPage = new EmployeeListActionsPage(page);
+    const systemUsersPage = new SystemUsersPage(page);
 
-    await usersPage.fillUsernameField(newUserData.newValidUser.username);
-    await usersPage.clickSearchButton();
+    await systemUsersPage.deleteUser(newUserData.newValidUser.username);
 
-    await usersPage.tickOnUserMainSelectAllCheckbox();
-    await usersPage.clickDeleteSelectedUserCheckboxButton();//flaky need to review cause not clicking on Delete button 
-    await usersPage.clickYesDeleteButton();
-
-    const deletedUserSuccessNotif =
-      await employeeListPage.returnEmployeeDeletionSuccessNotif();
-    await expect(deletedUserSuccessNotif).toBeVisible();
-
-    await pimPage.clickPIMsection();
-    await employeeListPage.fillEmployeeNameField(
+    await employeeListActionsPage.deleteEmployee(
       newEmployeeData.newValidEmployee.last_name
     );
-    await usersPage.clickSearchButton();
-
-    await usersPage.tickOnUserMainSelectAllCheckbox();
-    await usersPage.clickDeleteSelectedUserCheckboxButton();//flaky need to review cause not clicking on Delete button 
-    await usersPage.clickYesDeleteButton();
-    const deletedEmployeeSuccessNotif =
-      await employeeListPage.returnEmployeeDeletionSuccessNotif();
-    await expect(deletedEmployeeSuccessNotif).toBeVisible();
   });
 });

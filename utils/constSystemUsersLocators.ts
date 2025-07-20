@@ -7,9 +7,14 @@ export default class ConstSystemUsersLocators {
   readonly getConfirmDeletionButtonLocator: Locator;
   readonly getSuperHeroCheckboxLocator: Locator;
   readonly getDeleteSelectedButtonLocator: Locator;
+  readonly getDeleteUserSuccessNotifLocator: Locator;
 
   constructor(page: Page) {
     this.page = page;
+
+    this.getDeleteUserSuccessNotifLocator = page.getByText(
+      "SuccessSuccessfully Deleted×"
+    );
 
     this.getDeleteSelectedButtonLocator = page.getByRole("button", {
       name: " Delete Selected",

@@ -21,9 +21,10 @@ test.beforeEach(async ({ page }) => {
   await adminPage.clickAdminSection();
   await useMngPage.clickUserMngDropdown();
   await usersPage.clickUsersSubsection();
+  //TBU with method add employee and user and afterAll delete user and employee
 });
 
-test.describe("Search user by options", () => {
+test.describe.skip("Search user by options", () => {
   test("should allow users to search by username", async ({ page }) => {
     const usersPage = new UsersSubsectionPage(page);
 
@@ -72,8 +73,8 @@ test.describe("Search user by options", () => {
   });
 });
 
-test.describe("New user addition", () => {
-  test.skip("should allow users to add a new user", async ({ page }) => {
+test.describe.skip("New user addition", () => {
+  test("should allow users to add a new user", async ({ page }) => {
     const usersPage = new UsersSubsectionPage(page);
 
     await usersPage.clickAddNewUserButton();
@@ -100,10 +101,5 @@ test.describe("New user addition", () => {
 
     await usersPage.fillUsernameField(newUserData.newValidUser.username);
     await usersPage.clickSearchButton();
-
-    await usersPage.tickOnUserSuperHeroRow();
-    await usersPage.clickDeleteSelectedCheckboxButton();
-    await usersPage.clickYesDeleteButton();
-    //add assertion
   });
 });

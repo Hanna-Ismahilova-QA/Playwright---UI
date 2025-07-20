@@ -1,6 +1,228 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="22.130294">
-<testsuite name="hr-functional/adminSectionTests/addNewUserInteractions.spec.ts" timestamp="2025-06-29T12:10:39.377Z" hostname="chromium" tests="1" failures="0" skipped="0" time="21.463" errors="0">
-<testcase name="New user addition › should allow users to add a new user" classname="hr-functional/adminSectionTests/addNewUserInteractions.spec.ts" time="21.463">
+<testsuites id="" name="" tests="30" failures="0" skipped="23" errors="0" time="18.400455">
+<testsuite name="accessibility/homePageAccessibility.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="homepage › should not have any automatically detectable accessibility issues" classname="accessibility/homePageAccessibility.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="homepage › should not have any automatically detectable accessibility issues with better debbuging" classname="accessibility/homePageAccessibility.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="hr-functional/adminSectionTests/addNewUserInteractions.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="1" failures="0" skipped="0" time="17.528" errors="0">
+<testcase name="New user addition › should allow users to add a new user" classname="hr-functional/adminSectionTests/addNewUserInteractions.spec.ts" time="17.528">
+</testcase>
+</testsuite>
+<testsuite name="hr-functional/adminSectionTests/adminUsersMngmtInteractions.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="4" failures="0" skipped="2" time="11.565" errors="0">
+<testcase name="Search user by options › should allow users to search by username" classname="hr-functional/adminSectionTests/adminUsersMngmtInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Search user by options › should allow users to filter by user role" classname="hr-functional/adminSectionTests/adminUsersMngmtInteractions.spec.ts" time="5.764">
+</testcase>
+<testcase name="Search user by options › should allow users to search by employee name" classname="hr-functional/adminSectionTests/adminUsersMngmtInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Search user by options › should allow users to filter by status" classname="hr-functional/adminSectionTests/adminUsersMngmtInteractions.spec.ts" time="5.801">
+</testcase>
+</testsuite>
+<testsuite name="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="11" failures="0" skipped="11" time="0" errors="0">
+<testcase name="Successful employee creation › should allow user to add employee with mandatory fields only" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Successful employee creation › should allow user to add employee with all fields filled" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Successful employee creation › should auto-generate employee ID if left blank" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Successful employee creation › should allow creation of login details when toggle is enabled" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Successful employee creation › should preserve input data after validation error is fixed" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Validation errors during employee creation › should show error when first name is missing" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Validation errors during employee creation › should show error when last name is missing" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Validation errors during employee creation › should show error when employee ID is not unique" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Validation errors during employee creation › should validate password mismatch when creating login details" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Validation errors during employee creation › should prevent user creation with empty login username" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Validation errors during employee creation › should prevent form submission when all fields are empty" classname="hr-functional/pimSectionTests/addEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="hr-functional/pimSectionTests/deleteEmployeeInteractions.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="1" failures="0" skipped="1" time="0" errors="0">
+<testcase name="Successful employee deletion › should allow user to delete employee" classname="hr-functional/pimSectionTests/deleteEmployeeInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="hr-functional/pimSectionTests/employeeListInteractions.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="5" failures="0" skipped="5" time="0" errors="0">
+<testcase name="Search user by options › should allow users to search by username" classname="hr-functional/pimSectionTests/employeeListInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Search user by options › should allow users to filter by user role" classname="hr-functional/pimSectionTests/employeeListInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Search user by options › should allow users to search by employee name" classname="hr-functional/pimSectionTests/employeeListInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Search user by options › should allow users to filter by status" classname="hr-functional/pimSectionTests/employeeListInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="New user addition › should allow users to add a new user" classname="hr-functional/pimSectionTests/employeeListInteractions.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="hr-functional/userLogin.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="4" failures="0" skipped="0" time="11.915" errors="0">
+<testcase name="User Authentication › should allow users to log in" classname="hr-functional/userLogin.spec.ts" time="4.182">
+</testcase>
+<testcase name="User Authentication Validation › should not allow users to log when username and password invalid" classname="hr-functional/userLogin.spec.ts" time="3.039">
+</testcase>
+<testcase name="User Authentication Validation › should not allow users to log when username missing" classname="hr-functional/userLogin.spec.ts" time="2.395">
+</testcase>
+<testcase name="User Authentication Validation › should not allow users to log when password missing" classname="hr-functional/userLogin.spec.ts" time="2.299">
+</testcase>
+</testsuite>
+<testsuite name="visual-comparison/visual.spec.ts" timestamp="2025-07-20T12:41:35.876Z" hostname="chromium" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="Visual Comparison › should compare letcode page with dynamic content" classname="visual-comparison/visual.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Visual Comparison › should compare homepage without dynamic content" classname="visual-comparison/visual.spec.ts" time="0">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

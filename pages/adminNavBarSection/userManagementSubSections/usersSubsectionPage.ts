@@ -1,7 +1,6 @@
 import { Page } from "playwright";
 import ConstUsersSubsectioLocators from "../../../utils/constUsersSubsectionLocator";
 import { UserLoginInterface } from "../../interfaces/loginPageInterface";
-import ClaimClass from "../../claimPage";
 import { expect } from "playwright/test";
 
 export default class UsersSubsectionPage extends ConstUsersSubsectioLocators {
@@ -96,7 +95,7 @@ export default class UsersSubsectionPage extends ConstUsersSubsectioLocators {
   async selectNewEmployeeName(employee_name: string) {
     await this.getNewEmployeeNameFieldLocator.click();
     await this.getNewEmployeeNameFieldLocator.fill(employee_name);
-    await this.getNewEmployeeNameOptionLocator.click();
+    await this.getNewEmployeeNameAnonOptionLocator.click();
   }
 
   async inputNewUniqueUsername(username: string) {
@@ -127,7 +126,7 @@ export default class UsersSubsectionPage extends ConstUsersSubsectioLocators {
     await this.getMainSelectAllCheckboxLocator.click();
   }
 
-  async clickDeleteSelectedUserCheckboxButton(){
+  async clickDeleteSelectedButton(){
     const confirmDeletionButton = this.getDeleteSelectedButtonLocator;
     await confirmDeletionButton.waitFor({state: 'visible'});
     await expect(confirmDeletionButton).toBeEnabled();

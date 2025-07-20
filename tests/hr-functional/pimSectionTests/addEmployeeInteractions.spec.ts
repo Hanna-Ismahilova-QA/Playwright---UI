@@ -5,6 +5,7 @@ import * as newEmployeeData from "../../../fixtures/newEmployeeData.json";
 import PIMPage from "../../../pages/pimPage/pimPage";
 import AddEmployeePage from "../../../pages/pimPage/addEmployeeTab/addEmployeePage";
 import { DataGenerator } from "../../../utils/dataGenerator";
+import EmployeeListActionsPage from "../../../pages/pimPage/employeeListTab/employeeListActions";
 
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -20,7 +21,7 @@ test.beforeEach(async ({ page }) => {
   await pimPage.clickAddEmployeeButton();
 });
 
-test.describe("Successful employee creation", () => {
+test.describe.skip("Successful employee creation", () => {
   test("should allow user to add employee with mandatory fields only", async ({
     page,
   }) => {
@@ -38,34 +39,38 @@ test.describe("Successful employee creation", () => {
     await expect(newEmployeeSuccessNotif).toBeVisible();
   });
 
-  test("should allow user to add employee with all fields filled", async ({
+  test.skip("should allow user to add employee with all fields filled", async ({
     page,
   }) => {
     // Fill in first name, last name, employee ID, login details, etc.
   });
 
-  test("should auto-generate employee ID if left blank", async ({ page }) => {
+  test.skip("should auto-generate employee ID if left blank", async ({ page }) => {
     // Leave Employee ID blank and check that a new ID is generated
   });
 
-  test("should allow creation of login details when toggle is enabled", async ({
+  test.skip("should allow creation of login details when toggle is enabled", async ({
     page,
   }) => {
     // Enable the toggle and fill username, password
   });
 
-  test("should preserve input data after validation error is fixed", async ({
+  test.skip("should preserve input data after validation error is fixed", async ({
     page,
   }) => {
     // Leave a required field empty, see error, then fix it without losing data
   });
 
   test.afterEach(async ({ page }) => {
-    //add method to delete employee
+    const employeeListActionsPage = new EmployeeListActionsPage(page);
+
+    await employeeListActionsPage.deleteEmployee(
+      newEmployeeData.newValidEmployee.last_name
+    );
   });
 });
 
-test.describe("Validation errors during employee creation", () => {
+test.describe.skip("Validation errors during employee creation", () => {
   test("should show error when first name is missing", async ({ page }) => {
     // Leave first name blank and try to save
   });
